@@ -6,3 +6,22 @@
   );
   opacity: 0.5;
 }
+
+.profile-bg-border {
+  border-radius: 1rem;
+  border: 4px solid transparent;
+  background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.profile-border {
+  border-radius: 1rem;
+  border-bottom: 4px solid transparent;
+  border-right: 4px solid transparent;
+  background: linear-gradient(0deg, #5386e4, #92018c) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}

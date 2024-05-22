@@ -11,11 +11,13 @@ export default function About() {
             <img src="/crosses.png" className="absolute w-2/3 z-0 left-0" />
             <div className="relative profile-container flex justify-end items-end w-4/5">
               <div className="profile-bg absolute aspect-square w-full bottom-0 rounded-2xl right-0"></div>
+              <div className="profile-bg-border absolute aspect-square w-full bottom-0 rounded-2xl right-0"></div>
               <img
                 src="/profile.png"
                 alt="Hector's photo"
                 className="relative z-10 w-full object-contain rounded-b-2xl"
               />
+              <div className="profile-border absolute aspect-square w-full bottom-0 rounded-2xl right-0 z-20"></div>
             </div>
           </div>
         </div>
