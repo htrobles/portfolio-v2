@@ -1,11 +1,10 @@
 import React from 'react';
 import './Hero.css';
-import Container from '../Container';
 
 export default function Hero() {
   return (
-    <div className="h-screen flex justify-center items-center">
-      <Container maxWidth={850}>
+    <div className="h-screen flex flex-col justify-center items-center">
+      <div className="container mx-auto px-4" style={{ maxWidth: 850 }}>
         <h1 className="hero-copy font-display font-bold text-2xl sm:text-3xl md:text-4xl leading-none">
           IF YOU CAN THINK IT,
           <br /> WE CAN BUILD IT.
@@ -24,7 +23,11 @@ export default function Hero() {
         <button className="outline outline-primary text-primary py-2 px-4 rounded-sm hover:bg-primary hover:text-black font-semibold">
           Let's Collaborate
         </button>
-      </Container>
+      </div>
+      <div className="mx-auto absolute bottom-10 flex flex-col justify-center">
+        <p className="text-sm">Scroll Down</p>
+        <img src="/double-down.svg" alt="Scroll Down" />
+      </div>
     </div>
   );
 }
