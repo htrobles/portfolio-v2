@@ -11,12 +11,12 @@ export default function Journey() {
   const [activeJourneyIndex, setActiveJourneyIndex] = useState(0);
 
   return (
-    <section id="my-journey" className="py-24 overflow-x-hidden">
+    <section id="my-journey" className="py-24 overflow-x-hidden min-h-screen">
       <div className="container mx-auto max-w-screen-lg px-8">
         <SectionHead>My Journey</SectionHead>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           <div className="order-1 md:order-2 md:pt-8">
-            <Timeline />
+            <Timeline activeJourneyIndex={activeJourneyIndex} />
             <div className="flex justify-between mt-10">
               <div
                 className={activeJourneyIndex === 0 ? 'invisible' : 'visible'}

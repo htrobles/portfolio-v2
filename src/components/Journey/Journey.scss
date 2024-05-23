@@ -1,8 +1,8 @@
 .timeline-container {
-  left: calc(50vw - 120px);
+  left: calc(50vw - 132px);
 
   @media screen and (min-width: 768px) {
-    left: auto;
+    left: 120px;
   }
 }
 
@@ -10,6 +10,7 @@
   display: grid;
   grid-template-columns: repeat(6, 200px);
   grid-template-rows: auto auto;
+  transition: left 0.6s ease-out;
 }
 
 .timeline-bar {

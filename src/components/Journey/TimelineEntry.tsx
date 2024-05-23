@@ -5,6 +5,7 @@ type TimelineEntryProps = {
   period: string;
   company: string;
   position: string;
+  isActive: boolean;
 };
 
 export default function TimelineEntry({
@@ -12,10 +13,13 @@ export default function TimelineEntry({
   company,
   period,
   position,
+  isActive,
 }: TimelineEntryProps) {
   let colStart = index + 1;
   const rowStart = index % 2 === 0 ? 1 : 2;
   const isTop = rowStart === 1;
+
+  const dotColor = isActive ? 'primary' : 'white';
 
   return (
     <div
@@ -33,7 +37,9 @@ export default function TimelineEntry({
         <p className="whitespace-nowrap	">{position}</p>
       </div>
       <div
-        className="w-5 h-5 bg-white rounded-full relative"
+        className={`w-5 h-5 bg-${dotColor} rounded-full relative transition ease-in-out duration-1000 outline ${
+          isActive ? 'outline-4' : 'outline-0'
+        }`}
         style={{ order: isTop ? 2 : 1 }}
       ></div>
     </div>
