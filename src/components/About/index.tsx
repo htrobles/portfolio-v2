@@ -4,7 +4,7 @@ import SectionHead from '../SectionHead';
 
 export default function About() {
   return (
-    <section className="py-24 bg-white bg-opacity-5">
+    <section id="about-me" className="py-24 bg-white bg-opacity-5">
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-screen-lg px-8">
         <div className="flex justify-center">
           <div className="profile-container relative flex justify-end w-full">
@@ -24,10 +24,12 @@ export default function About() {
         <div className="text-left flex flex-col justify-center">
           <SectionHead>About Me</SectionHead>
           <p className="pb-4">
-            As a developer with a designer's heart, I believe that websites and
-            web apps should be both functional and visually captivating. My
-            approach is UI/UX-driven, prioritizing ease of use and comfort to
-            ensure users achieve their goals effortlessly and enjoyably.
+            Hi, My name is{' '}
+            <span className="font-bold text-primary">Hector</span>. As a
+            developer with a designer's heart, I believe that websites and web
+            apps should be both functional and visually captivating. My approach
+            is UI/UX-driven, prioritizing ease of use and comfort to ensure
+            users achieve their goals effortlessly and enjoyably.
           </p>
           <p>
             I code to breathe life into my designs. Unlike printed media,

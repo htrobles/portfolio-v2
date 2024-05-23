@@ -1,0 +1,20 @@
+.timeline-container {
+  left: calc(50vw - 120px);
+
+  @media screen and (min-width: 768px) {
+    left: auto;
+  }
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+  grid-template-rows: auto auto;
+}
+
+.timeline-bar {
+  left: 100px;
+  width: 1000px;
+  top: 50%;
+  transform: translateY(-50%);
+}

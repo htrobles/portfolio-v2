@@ -1,0 +1,14 @@
+.card {
+  border-radius: 1rem;
+  box-shadow: 5px 5px 0px #92018c;
+}
+
+.card-border {
+  border-radius: 1rem;
+  border: 2px solid transparent;
+  background: linear-gradient(145deg, #fff, rgba(255, 255, 255, 0)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}

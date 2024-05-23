@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import Button from '../Button';
 
 export default function Hero() {
   return (
@@ -20,9 +21,7 @@ export default function Hero() {
           robust web platforms, or creating innovative software solutions, your
           ideas are brought to life in extraordinary digital realities.
         </p>
-        <button className="outline outline-primary text-primary py-2 px-8 rounded-sm hover:bg-primary hover:text-black font-semibold">
-          Let's Collaborate
-        </button>
+        <Button type="outline">Let's Collaborate</Button>
       </div>
       <div className="mx-auto absolute bottom-10 flex flex-col justify-center">
         <p className="text-sm">Scroll Down</p>
