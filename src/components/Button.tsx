@@ -1,18 +1,13 @@
 import React, { ReactNode } from 'react';
 import { IconType } from 'react-icons';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 
 type ButtonProps = {
-  children: ReactNode;
-  type?: 'default' | 'outline' | 'icon' | 'link';
+  children?: ReactNode;
+  type?: 'default' | 'outline' | 'block';
   color?: 'primary' | 'white' | 'secondary';
-  icon?: string;
+  icon?: ReactNode;
+  iconPosition?: 'left' | 'right';
   onClick?: (...args: any) => any;
-};
-
-const icons: { [key: string]: IconType } = {
-  'chevron-left': FaChevronLeft,
-  'chevron-right': FaChevronRight,
 };
 
 export default function Button({
@@ -20,6 +15,7 @@ export default function Button({
   type,
   color,
   icon,
+  iconPosition,
   onClick,
 }: ButtonProps) {
   let classes: string;
@@ -30,19 +26,19 @@ export default function Button({
     case 'outline':
       classes = `outline outline-${finalColor} text-${finalColor} hover:bg-${finalColor} py-2 px-8 rounded-sm hover:text-black font-semibold select-none`;
       break;
-    case 'icon':
-      classes = `text-${finalColor} hover:bg-${finalColor} py-2 px-2 rounded-sm hover:text-black font-semibold select-none stroke-black`;
+    case 'block':
+      classes = `bg-${finalColor} text-black py-2 px-8 rounded-sm hover:text-white font-semibold select-none`;
       break;
     default:
-      classes = `bg-${finalColor} text-black py-2 px-8 rounded-sm hover:text-white font-semibold select-none`;
+      classes = `text-${finalColor} hover:bg-${finalColor} py-2 px-2 rounded-sm hover:text-black font-semibold select-none`;
       break;
   }
 
-  const Icon = icon ? icons[icon] : null;
-
   return (
     <button onClick={onClick} className={classes}>
-      {finalType === 'icon' && Icon ? <Icon /> : children}
+      {iconPosition === 'left' && icon && icon}
+      {children}
+      {iconPosition === 'right' && icon && icon}
     </button>
   );
 }

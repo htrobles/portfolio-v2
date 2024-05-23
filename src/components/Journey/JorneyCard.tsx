@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Card from '../Card';
 import { ExperienceType } from '../../data/experience';
 import Button from '../Button';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 
 type JourneyCardProps = {
   experience: ExperienceType;
@@ -26,31 +27,19 @@ export default function JourneyCard({
         <div className="flex justify-between mb-4">
           <div className={isFirst ? 'invisible' : 'visible'}>
             <Button
-              type="icon"
+              icon={<FaChevronLeft />}
               color="white"
               onClick={onClickPrevious}
-              icon="chevron-left"
-            >
-              <img
-                src="/chevron-left.svg"
-                alt="Previous Experience Button"
-                className="h-4"
-              />
-            </Button>
+              iconPosition="left"
+            />
           </div>
           <div className={isLast ? 'invisible' : 'visible'}>
             <Button
-              type="icon"
               color="white"
               onClick={onClickNext}
-              icon="chevron-right"
-            >
-              <img
-                src="/chevron-right.svg"
-                alt="Next Experience Button"
-                className="h-4"
-              />
-            </Button>
+              icon={<FaChevronRight />}
+              iconPosition="right"
+            />
           </div>
         </div>
         <div className="flex justify-between items-end text-white">
