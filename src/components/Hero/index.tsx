@@ -1,12 +1,12 @@
 import React from 'react';
-import './Hero.css';
+import './Hero.scss';
 import Button from '../Button';
 
 export default function Hero() {
   return (
     <div className="h-screen flex flex-col justify-center items-center">
       <div className="container mx-auto px-8" style={{ maxWidth: 850 }}>
-        <h1 className="hero-copy font-display font-bold text-2xl sm:text-3xl md:text-4xl leading-none">
+        <h1 className="hero-copy font-display font-bold text-2xl sm:text-3xl md:text-4xl leading-none tracking-wide">
           IF YOU CAN THINK IT,
           <br /> WE CAN BUILD IT.
         </h1>

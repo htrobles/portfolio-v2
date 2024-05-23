@@ -1,0 +1,27 @@
+.hero-copy {
+  background: linear-gradient(
+    90deg,
+    rgba(83, 134, 228, 1) 0%,
+    rgba(146, 1, 140, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-stroke-width: 6px;
+  -webkit-text-stroke-color: transparent;
+  color: #000;
+
+  background-size: 200% 200%; /* Ensures the gradient animation covers the element */
+  animation: gradientAnimation 10s ease infinite;
+  padding-left: 6px;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
