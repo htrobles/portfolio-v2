@@ -45,6 +45,7 @@ export const experiences: ExperienceType[] = [
     period: 'NOW',
     company: 'Your Company',
     position: 'Awesome Developer',
-    description: "Let's work together and build amazing products",
+    description:
+      "Let's work together and build amazing products. By partnering with me, you'll get a dedicated and versatile developer who loves turning ideas into reality. I combine creativity and technical skills to deliver exceptional results. Whether you need a stunning website, a dynamic web application, or innovative solutions, I'm here to help. Reach out today, and let's create something amazing together.",
   },
 ];

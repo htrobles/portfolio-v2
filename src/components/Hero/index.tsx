@@ -23,9 +23,12 @@ export default function Hero() {
         </p>
         <Button type="outline">Let's Collaborate</Button>
       </div>
-      <div className="mx-auto absolute bottom-10 flex flex-col justify-center">
-        <p className="text-sm">Scroll Down</p>
-        <img src="/double-down.svg" alt="Scroll Down" />
+      <div className="mx-auto absolute bottom-10 flex flex-col justify-center items-center">
+        <img
+          className="w-10 object-contain"
+          src="/double-down.svg"
+          alt="Scroll Down"
+        />
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import Journey from './components/Journey';
 
 function App() {
   return (
-    <div className="App text-white">
+    <div className="App text-white text-sm sm:text-base">
       <Header />
       <Hero />
       <About />
