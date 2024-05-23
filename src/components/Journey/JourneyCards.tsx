@@ -5,10 +5,14 @@ import JourneyCard from './JorneyCard';
 
 type JourneyCardsProps = {
   activeJourneyIndex: number;
+  onClickPrevious: () => void;
+  onClickNext: () => void;
 };
 
 export default function JourneyCards({
   activeJourneyIndex,
+  onClickNext,
+  onClickPrevious,
 }: JourneyCardsProps) {
   const experience = experiences[activeJourneyIndex];
 
@@ -19,6 +23,8 @@ export default function JourneyCards({
         experience={experience}
         isFirst={activeJourneyIndex === 0}
         isLast={activeJourneyIndex === experiences.length - 1}
+        onClickPrevious={onClickPrevious}
+        onClickNext={onClickNext}
       />
     </div>
   );
