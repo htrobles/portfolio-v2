@@ -24,13 +24,13 @@ export default function Button({
 
   switch (finalType) {
     case 'outline':
-      classes = `outline outline-${finalColor} text-${finalColor} hover:bg-${finalColor} py-2 px-8 rounded-sm hover:text-black font-semibold select-none`;
+      classes = `outline outline-${finalColor} text-${finalColor} hover:bg-${finalColor} py-2 px-8 rounded-sm hover:text-black font-semibold select-none flex gap-2 items-center`;
       break;
     case 'block':
-      classes = `bg-${finalColor} text-black py-2 px-8 rounded-sm hover:text-white font-semibold select-none`;
+      classes = `bg-${finalColor} text-black py-2 px-8 rounded-sm hover:text-white font-semibold select-none flex gap-2 items-center`;
       break;
     default:
-      classes = `text-${finalColor} hover:bg-${finalColor} py-2 px-2 rounded-sm hover:text-black font-semibold select-none`;
+      classes = `text-${finalColor} hover:bg-${finalColor} py-2 px-2 rounded-sm hover:text-white font-semibold select-none flex gap-2 items-center`;
       break;
   }
 

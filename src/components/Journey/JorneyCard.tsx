@@ -28,21 +28,25 @@ export default function JourneyCard({
           <div className={isFirst ? 'invisible' : 'visible'}>
             <Button
               icon={<FaChevronLeft />}
-              color="white"
+              color="primary"
               onClick={onClickPrevious}
               iconPosition="left"
-            />
+            >
+              Previous
+            </Button>
           </div>
           <div className={isLast ? 'invisible' : 'visible'}>
             <Button
-              color="white"
+              color="primary"
               onClick={onClickNext}
               icon={<FaChevronRight />}
               iconPosition="right"
-            />
+            >
+              Next
+            </Button>
           </div>
         </div>
-        <div className="flex justify-between items-end text-white">
+        <div className="flex justify-between items-end">
           <h4 className="text-lg font-bold">{company}</h4>
           <p>{period}</p>
         </div>

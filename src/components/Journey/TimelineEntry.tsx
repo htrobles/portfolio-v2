@@ -19,7 +19,11 @@ export default function TimelineEntry({
   const rowStart = index % 2 === 0 ? 1 : 2;
   const isTop = rowStart === 1;
 
-  const dotColor = isActive ? 'primary' : 'white';
+  const dotColor = isActive ? 'secondary' : 'white';
+
+  const dotClassName = `w-5 h-5 bg-${dotColor} rounded-full relative transition ease-in-out duration-1000 outline ${
+    isActive ? 'outline-4' : 'outline-0'
+  }`;
 
   return (
     <div
@@ -36,12 +40,7 @@ export default function TimelineEntry({
         <h5 className="font-bold whitespace-nowrap	">{company}</h5>
         <p className="whitespace-nowrap	">{position}</p>
       </div>
-      <div
-        className={`w-5 h-5 bg-${dotColor} rounded-full relative transition ease-in-out duration-1000 outline ${
-          isActive ? 'outline-4' : 'outline-0'
-        }`}
-        style={{ order: isTop ? 2 : 1 }}
-      ></div>
+      <div className={dotClassName} style={{ order: isTop ? 2 : 1 }}></div>
     </div>
   );
 }
