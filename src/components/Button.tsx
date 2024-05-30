@@ -30,7 +30,7 @@ export default function Button({
       classes = `bg-${finalColor} text-black py-2 px-8 rounded-sm hover:text-white font-semibold select-none flex gap-2 items-center`;
       break;
     default:
-      classes = `text-${finalColor} hover:bg-${finalColor} py-2 px-2 rounded-sm hover:text-white font-semibold select-none flex gap-2 items-center`;
+      classes = `text-${finalColor} hover:bg-${finalColor} hover:text-white font-semibold select-none flex gap-2 items-center`;
       break;
   }
 

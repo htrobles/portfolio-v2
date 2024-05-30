@@ -51,7 +51,7 @@ export default function JourneyCard({
           <p>{period}</p>
         </div>
         <p className="pb-4">{position}</p>
-        <p>{description}</p>
+        <p className="overflow-y-auto">{description}</p>
       </Card>
     </div>
   );
