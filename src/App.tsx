@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Journey from './components/Journey';
 import WhatIDo from './components/WhatIDo';
+import Technologies from './components/Technologies';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <About />
       <Journey />
       <WhatIDo />
+      <Technologies />
     </div>
   );
 }

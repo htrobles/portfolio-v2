@@ -22,11 +22,11 @@ export default function Journey() {
     <section id="my-journey" className="py-24 overflow-x-hidden min-h-screen">
       <div className="container mx-auto max-w-screen-lg px-8">
         <SectionHead>My Journey</SectionHead>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="order-1 md:order-2 md:mt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="order-1 lg:order-2 lg:mt-10">
             <Timeline activeJourneyIndex={activeJourneyIndex} />
           </div>
-          <div className="order-2 md:order-1">
+          <div className="order-2 lg:order-1">
             <JourneyCards
               activeJourneyIndex={activeJourneyIndex}
               onClickPrevious={handleClickPrevious}
