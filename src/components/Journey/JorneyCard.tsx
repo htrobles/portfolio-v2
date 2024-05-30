@@ -27,9 +27,10 @@ export default function JourneyCard({
         <div className="flex justify-between mb-4">
           <div className={isFirst ? 'invisible' : 'visible'}>
             <Button
-              icon={<FaChevronLeft />}
+              type="outline"
               color="primary"
               onClick={onClickPrevious}
+              icon={<FaChevronLeft />}
               iconPosition="left"
             >
               Previous
@@ -37,6 +38,7 @@ export default function JourneyCard({
           </div>
           <div className={isLast ? 'invisible' : 'visible'}>
             <Button
+              type="outline"
               color="primary"
               onClick={onClickNext}
               icon={<FaChevronRight />}
