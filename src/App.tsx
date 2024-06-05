@@ -6,6 +6,7 @@ import About from './components/About';
 import Journey from './components/Journey';
 import WhatIDo from './components/WhatIDo';
 import Technologies from './components/Technologies';
+import Projects from './components/Projects';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Journey />
       <WhatIDo />
       <Technologies />
+      <Projects />
     </div>
   );
 }
