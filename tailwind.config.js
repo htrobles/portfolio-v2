@@ -8,6 +8,7 @@ module.exports = {
         secondary: '#92018C',
         black: '#000000',
         white: '#F0F0F0',
+        danger: '#EC5766',
       },
       fontFamily: {
         display: ['Radio Canada Big', 'sans-serif'],

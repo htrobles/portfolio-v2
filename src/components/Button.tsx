@@ -8,6 +8,7 @@ type ButtonProps = {
   icon?: ReactNode;
   iconPosition?: 'left' | 'right';
   onClick?: (...args: any) => any;
+  isSubmit?: boolean;
 };
 
 export default function Button({
@@ -17,6 +18,7 @@ export default function Button({
   icon,
   iconPosition,
   onClick,
+  isSubmit,
 }: ButtonProps) {
   let classes: string;
   const finalType = type || 'default';
@@ -35,7 +37,11 @@ export default function Button({
   }
 
   return (
-    <button onClick={onClick} className={classes}>
+    <button
+      onClick={onClick}
+      className={classes}
+      type={isSubmit ? 'submit' : 'button'}
+    >
       {iconPosition === 'left' && icon && icon}
       {children}
       {iconPosition === 'right' && icon && icon}

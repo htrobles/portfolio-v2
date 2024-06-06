@@ -7,6 +7,7 @@ import Journey from './components/Journey';
 import WhatIDo from './components/WhatIDo';
 import Technologies from './components/Technologies';
 import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <WhatIDo />
       <Technologies />
       <Projects />
+      <Contact />
     </div>
   );
 }
