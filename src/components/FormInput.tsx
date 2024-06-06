@@ -32,9 +32,9 @@ export default function FormInput({
 
   useEffect(() => {
     if (required && !value) {
-      setError(`*Required`);
+      setError(`* Required`);
     } else if (type === 'email' && !isValidEmail(value)) {
-      setError('*Valid email address is required');
+      setError('* Valid email address is required');
     } else {
       setError('');
     }
@@ -47,7 +47,7 @@ export default function FormInput({
           {label}
         </label>
         {error && (
-          <p className="bg-danger text-xs italic ml-4 py-1 px-2 rounded">
+          <p className="bg-danger text-xs italic ml-1 py-1 px-2 rounded">
             {error}
           </p>
         )}

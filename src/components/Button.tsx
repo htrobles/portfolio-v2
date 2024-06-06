@@ -21,25 +21,49 @@ export default function Button({
   isSubmit,
 }: ButtonProps) {
   let classes: string;
-  const finalType = type || 'default';
   const finalColor = color || 'primary';
 
-  switch (finalType) {
+  const buttonClasses = [
+    'font-semibold',
+    'select-none',
+    'flex ',
+    'gap-2',
+    'items-center',
+    'justify-center',
+  ];
+
+  switch (type) {
     case 'outline':
-      classes = `outline outline-${finalColor} text-${finalColor} hover:bg-${finalColor} py-2 px-8 rounded-sm hover:text-black font-semibold select-none flex gap-2 items-center`;
+      buttonClasses.push(
+        'outline',
+        `outline-${finalColor}`,
+        `text-${finalColor}`,
+        `hover:bg-${finalColor}`,
+        'py-2',
+        'px-8',
+        'rounded-sm',
+        'hover:text-black'
+      );
       break;
     case 'block':
-      classes = `bg-${finalColor} text-black py-2 px-8 rounded-sm hover:text-white font-semibold select-none flex gap-2 items-center`;
+      buttonClasses.push(
+        `bg-${finalColor}`,
+        `text-black`,
+        `py-2`,
+        `px-8`,
+        `rounded-sm`,
+        `hover:text-white`
+      );
       break;
     default:
-      classes = `text-${finalColor} hover:bg-${finalColor} hover:text-white font-semibold select-none flex gap-2 items-center`;
+      buttonClasses.push(`text-${finalColor}`, `hover:text-white`);
       break;
   }
 
   return (
     <button
       onClick={onClick}
-      className={classes}
+      className={buttonClasses.join(' ')}
       type={isSubmit ? 'submit' : 'button'}
     >
       {iconPosition === 'left' && icon && icon}

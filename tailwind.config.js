@@ -9,12 +9,14 @@ module.exports = {
         black: '#000000',
         white: '#F0F0F0',
         danger: '#EC5766',
+        success: '#91EC09',
       },
       fontFamily: {
         display: ['Radio Canada Big', 'sans-serif'],
         sans: ['Quicksand', 'sans-serif'],
       },
       fontSize: {
+        xs: '0.7rem',
         sm: '0.8rem',
         base: '1rem',
         lg: '1.25rem',

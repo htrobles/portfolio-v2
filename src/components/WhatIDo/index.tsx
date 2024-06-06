@@ -41,7 +41,7 @@ export default function WhatIDo() {
               </h4>
             </div>
           </div>
-          <div className="w-full basis-3/5">
+          <div className="w-full basis-3/5 flex justify-center">
             <Card>
               <p className="pb-4">
                 As a versatile full-stack developer with a designer's eye, I

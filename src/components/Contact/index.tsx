@@ -3,8 +3,9 @@ import SectionHead from '../SectionHead';
 import Button from '../Button';
 import FormInput from '../FormInput';
 import emailjs from '@emailjs/browser';
+import ContactResultModal from '../ContactResultModal';
 
-type ContactSendStatus = {
+export type ContactSendResult = {
   status: 'success' | 'fail';
   message: string;
 };
@@ -16,9 +17,8 @@ type Form = {
 };
 
 export default function Contact() {
-  const [contactSendStatus, setContactSendStatus] = useState<
-    ContactSendStatus | undefined | null
-  >();
+  const [contactSendResult, setContactSendResult] =
+    useState<ContactSendResult>();
 
   const [form, setForm] = useState<Form>({
     name: '',
@@ -55,7 +55,7 @@ export default function Contact() {
     const { name, email, message } = form;
 
     if (!name || !email || !message) {
-      return setContactSendStatus({
+      return setContactSendResult({
         status: 'fail',
         message: 'Please fill out the required fields on the form.',
       });
@@ -71,7 +71,7 @@ export default function Contact() {
       })
       .then(
         () => {
-          setContactSendStatus({
+          setContactSendResult({
             status: 'success',
             message:
               'Thank you for connecting with me. I will reply to your message as soon as I read it.',
@@ -79,7 +79,7 @@ export default function Contact() {
           setForm({ name: '', email: '', message: '' });
         },
         (error) => {
-          setContactSendStatus({
+          setContactSendResult({
             status: 'fail',
             message:
               "I'm Sorry. There has been a problem sendding your message. You can still reach me via email me at: hjt.robles@gmail.com.",
@@ -88,68 +88,76 @@ export default function Contact() {
       );
   };
 
+  console.log(contactSendResult);
+
   return (
-    <section id="contacy" className="py-24 bg-secondary bg-opacity-90">
-      <div className="container mx-auto max-w-screen-lg px-8">
-        <SectionHead>LET'S CONNECT</SectionHead>
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="space-y-8">
-            <p>
-              Email:{' '}
-              <a href="mailto:hjt.robles@gmail.com" className="font-bold">
-                hjt.robles@gmail.com
-              </a>
-            </p>
-            <p>
-              Phone:{' '}
-              <a href="tel:+12265044615" className="font-bold">
-                +1 226 504 4615
-              </a>
-            </p>
-            <Button type="outline" color="white">
-              Download My Resume
-            </Button>
-          </div>
-          <div className="space-y-8">
-            <h3 className="text-lg">Send me a message</h3>
-            <form
-              ref={formRef}
-              className="space-y-6"
-              onSubmit={handleSendEmail}
-            >
-              <FormInput
-                name="name"
-                label="Name"
-                placeholder="John Doe"
-                onChange={handleUpdateName}
-                value={form.name}
-                required
-              />
-              <FormInput
-                name="email"
-                label="Email"
-                type="email"
-                placeholder="jdoe@email.com"
-                onChange={handleUpdateEmail}
-                value={form.email}
-                required
-              />
-              <FormInput
-                name="message"
-                label="Message"
-                placeholder="Hi Hector, you seem to be an awesome developer. I want to collaborate with you. Are you available?"
-                onChange={handleUpdateMessage}
-                value={form.message}
-                required
-                textarea
-              />
-              <Button isSubmit type="outline" color="white">
-                Submit
+    <>
+      <section id="contact" className="py-24 bg-secondary bg-opacity-90">
+        <div className="container mx-auto max-w-screen-lg px-8">
+          <SectionHead>LET'S CONNECT</SectionHead>
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="space-y-8">
+              <p>
+                Email:{' '}
+                <a href="mailto:hjt.robles@gmail.com" className="font-bold">
+                  hjt.robles@gmail.com
+                </a>
+              </p>
+              <p>
+                Phone:{' '}
+                <a href="tel:+12265044615" className="font-bold">
+                  +1 226 504 4615
+                </a>
+              </p>
+              <Button type="outline" color="white">
+                Download My Resume
               </Button>
-            </form>
+            </div>
+            <div className="space-y-8">
+              <h3 className="text-lg">Send me a message</h3>
+              <form
+                ref={formRef}
+                className="space-y-6"
+                onSubmit={handleSendEmail}
+              >
+                <FormInput
+                  name="name"
+                  label="Name"
+                  placeholder="John Doe"
+                  onChange={handleUpdateName}
+                  value={form.name}
+                  required
+                />
+                <FormInput
+                  name="email"
+                  label="Email"
+                  type="email"
+                  placeholder="jdoe@email.com"
+                  onChange={handleUpdateEmail}
+                  value={form.email}
+                  required
+                />
+                <FormInput
+                  name="message"
+                  label="Message"
+                  placeholder="Hi Hector, you seem to be an awesome developer. I want to collaborate with you. Are you available?"
+                  onChange={handleUpdateMessage}
+                  value={form.message}
+                  required
+                  textarea
+                />
+                <Button isSubmit type="outline" color="white">
+                  Submit
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <ContactResultModal
+        result={contactSendResult}
+        onDismiss={() => setContactSendResult(undefined)}
+      />
+    </>
   );
 }
