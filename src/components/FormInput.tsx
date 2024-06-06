@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 type FormInputProps = {
   type?: 'text' | 'email';
@@ -7,7 +7,16 @@ type FormInputProps = {
   name: string;
   required?: boolean;
   textarea?: boolean;
+  onChange?: (value: string) => any;
+  value?: string;
 };
+
+function isValidEmail(value?: string): boolean {
+  if (!value) return false;
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(value);
+}
 
 export default function FormInput({
   type,
@@ -16,23 +25,20 @@ export default function FormInput({
   placeholder,
   required,
   textarea,
+  onChange,
+  value,
 }: FormInputProps) {
   const [error, setError] = useState('');
-  const [value, setValue] = useState('');
 
-  const handleChangeValue = (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    const newValue = e.target.value;
-    setValue(e.target.value);
-    if (!newValue && required) {
-      setError(`${label} is required`);
+  useEffect(() => {
+    if (required && !value) {
+      setError(`*Required`);
+    } else if (type === 'email' && !isValidEmail(value)) {
+      setError('*Valid email address is required');
     } else {
       setError('');
     }
-  };
+  }, [value]);
 
   return (
     <div className="w-full mb-6 md:mb-0">
@@ -42,7 +48,7 @@ export default function FormInput({
         </label>
         {error && (
           <p className="bg-danger text-xs italic ml-4 py-1 px-2 rounded">
-            Please fill out this field.
+            {error}
           </p>
         )}
       </div>
@@ -50,19 +56,21 @@ export default function FormInput({
         <textarea
           className="appearance-none block w-full text-gray-700  rounded py-3 px-4 leading-tight focus:outline-primary"
           id={name}
+          name={name}
           placeholder={placeholder}
           value={value}
-          onChange={handleChangeValue}
+          onChange={(e) => onChange && onChange(e.target.value)}
           rows={5}
         />
       ) : (
         <input
           className="appearance-none block w-full text-gray-700  rounded py-3 px-4 leading-tight focus:outline-primary"
           id={name}
-          type="text"
+          name={name}
+          type={type}
           placeholder={placeholder}
           value={value}
-          onChange={handleChangeValue}
+          onChange={(e) => onChange && onChange(e.target.value)}
         />
       )}
     </div>
