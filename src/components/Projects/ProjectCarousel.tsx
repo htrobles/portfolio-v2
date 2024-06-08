@@ -42,8 +42,8 @@ export default function ProjectCarousel() {
       }}
       style={swiperStyle as CSSProperties}
     >
-      {[1, 2, 3, 4].map(() => (
-        <SwiperSlide>
+      {[1, 2, 3, 4].map((index) => (
+        <SwiperSlide key={index}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <img
               src="/design.png"
