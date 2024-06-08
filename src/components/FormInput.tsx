@@ -54,7 +54,7 @@ export default function FormInput({
       </div>
       {textarea ? (
         <textarea
-          className="appearance-none block w-full text-gray-700  rounded py-3 px-4 leading-tight focus:outline-primary"
+          className="appearance-none block w-full text-gray-700  rounded py-3 px-4 leading-tight focus:outline-primary-500"
           id={name}
           name={name}
           placeholder={placeholder}
@@ -64,7 +64,7 @@ export default function FormInput({
         />
       ) : (
         <input
-          className="appearance-none block w-full text-gray-700  rounded py-3 px-4 leading-tight focus:outline-primary"
+          className="appearance-none block w-full text-gray-700  rounded py-3 px-4 leading-tight focus:outline-primary-500"
           id={name}
           name={name}
           type={type}

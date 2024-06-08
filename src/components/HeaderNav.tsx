@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import Button from './Button';
 
 export default function HeaderNav() {
@@ -19,9 +19,11 @@ export default function HeaderNav() {
       <li>
         <a href="#projects">Projects</a>
       </li>
-      <Button type="outline" color="primary">
-        Let's Collaborate
-      </Button>
+      <a href="#contact">
+        <Button type="outline" color="primary">
+          Let's Collaborate
+        </Button>
+      </a>
     </ul>
   );
 }

@@ -25,7 +25,7 @@ export default function About() {
           <SectionHead>About Me</SectionHead>
           <p className="pb-4">
             Hi, My name is{' '}
-            <span className="font-bold text-primary">Hector</span>. As a
+            <span className="font-bold text-primary-500">Hector</span>. As a
             developer with a designer's heart, I believe that websites and web
             apps should be both functional and visually captivating. My approach
             is UI/UX-driven, prioritizing ease of use and comfort to ensure

@@ -21,7 +21,9 @@ export default function Hero() {
           robust web platforms, or creating innovative software solutions, your
           ideas are brought to life in extraordinary digital realities.
         </p>
-        <Button type="outline">Let's Collaborate</Button>
+        <Button type="outline" color="white">
+          Let's Collaborate
+        </Button>
       </div>
       <div className="mx-auto absolute bottom-10 flex flex-col justify-center items-center">
         <img

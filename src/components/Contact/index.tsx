@@ -1,4 +1,11 @@
-import React, { FormEventHandler, useRef, useState } from 'react';
+import React, {
+  FormEventHandler,
+  LegacyRef,
+  RefObject,
+  forwardRef,
+  useRef,
+  useState,
+} from 'react';
 import SectionHead from '../SectionHead';
 import Button from '../Button';
 import FormInput from '../FormInput';
@@ -17,82 +24,85 @@ type Form = {
 };
 
 export default function Contact() {
-  const [contactSendResult, setContactSendResult] =
-    useState<ContactSendResult>();
+  {
+    const [contactSendResult, setContactSendResult] =
+      useState<ContactSendResult>();
 
-  const [form, setForm] = useState<Form>({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const formRef = useRef<HTMLFormElement>(null);
-
-  const handleUpdateName = (value: string) => {
-    setForm({
-      ...form,
-      name: value,
+    const [form, setForm] = useState<Form>({
+      name: '',
+      email: '',
+      message: '',
     });
-  };
 
-  const handleUpdateEmail = (value: string) => {
-    setForm({
-      ...form,
-      email: value,
-    });
-  };
+    const formRef = useRef<HTMLFormElement>(null);
 
-  const handleUpdateMessage = (value: string) => {
-    setForm({
-      ...form,
-      message: value,
-    });
-  };
-
-  const handleSendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const { name, email, message } = form;
-
-    if (!name || !email || !message) {
-      return setContactSendResult({
-        status: 'fail',
-        message: 'Please fill out the required fields on the form.',
+    const handleUpdateName = (value: string) => {
+      setForm({
+        ...form,
+        name: value,
       });
-    }
+    };
 
-    if (!formRef.current) return;
+    const handleUpdateEmail = (value: string) => {
+      setForm({
+        ...form,
+        email: value,
+      });
+    };
 
-    console.log(formRef.current);
+    const handleUpdateMessage = (value: string) => {
+      setForm({
+        ...form,
+        message: value,
+      });
+    };
 
-    emailjs
-      .sendForm('portfolio-messages', 'message-notification', formRef.current, {
-        publicKey: 'e21s1nT3jPK810dv1',
-      })
-      .then(
-        () => {
-          setContactSendResult({
-            status: 'success',
-            message:
-              'Thank you for connecting with me. I will reply to your message as soon as I read it.',
-          });
-          setForm({ name: '', email: '', message: '' });
-        },
-        (error) => {
-          setContactSendResult({
-            status: 'fail',
-            message:
-              "I'm Sorry. There has been a problem sendding your message. You can still reach me via email me at: hjt.robles@gmail.com.",
-          });
-        }
-      );
-  };
+    const handleSendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-  console.log(contactSendResult);
+      const { name, email, message } = form;
 
-  return (
-    <>
-      <section id="contact" className="py-24 bg-secondary bg-opacity-90">
+      if (!name || !email || !message) {
+        return setContactSendResult({
+          status: 'fail',
+          message: 'Please fill out the required fields on the form.',
+        });
+      }
+
+      if (!formRef.current) return;
+
+      emailjs
+        .sendForm(
+          'portfolio-messages',
+          'message-notification',
+          formRef.current,
+          {
+            publicKey: 'e21s1nT3jPK810dv1',
+          }
+        )
+        .then(
+          () => {
+            setContactSendResult({
+              status: 'success',
+              message:
+                'Thank you for connecting with me. I will reply to your message as soon as I read it.',
+            });
+            setForm({ name: '', email: '', message: '' });
+          },
+          (error) => {
+            setContactSendResult({
+              status: 'fail',
+              message:
+                "I'm Sorry. There has been a problem sendding your message. You can still reach me via email me at: hjt.robles@gmail.com.",
+            });
+          }
+        );
+    };
+
+    const isSubmitDisabled = !form.name || !form.email || !form.message;
+
+    return (
+      <section id="contact" className="py-24 bg-secondary-500 bg-opacity-90">
         <div className="container mx-auto max-w-screen-lg px-8">
           <SectionHead>LET'S CONNECT</SectionHead>
           <div className="grid grid-cols-1 md:grid-cols-2">
@@ -146,18 +156,23 @@ export default function Contact() {
                   required
                   textarea
                 />
-                <Button isSubmit type="outline" color="white">
+                <Button
+                  isSubmit
+                  type="block"
+                  color="primary"
+                  disabled={isSubmitDisabled}
+                >
                   Submit
                 </Button>
               </form>
             </div>
           </div>
         </div>
+        <ContactResultModal
+          result={contactSendResult}
+          onDismiss={() => setContactSendResult(undefined)}
+        />
       </section>
-      <ContactResultModal
-        result={contactSendResult}
-        onDismiss={() => setContactSendResult(undefined)}
-      />
-    </>
-  );
+    );
+  }
 }
