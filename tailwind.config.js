@@ -24,7 +24,7 @@ module.exports = {
         },
         black: '#000000',
         white: '#F0F0F0',
-        danger: '#EC5766',
+        danger: '#FF4343',
         success: '#91EC09',
       },
       fontFamily: {

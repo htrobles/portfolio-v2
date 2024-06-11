@@ -46,11 +46,7 @@ export default function FormInput({
         <label className="" htmlFor={name}>
           {label}
         </label>
-        {error && (
-          <p className="bg-danger text-xs italic ml-1 py-1 px-2 rounded">
-            {error}
-          </p>
-        )}
+        {error && <p className="text-danger text-xs italic ml-1">{error}</p>}
       </div>
       {textarea ? (
         <textarea
