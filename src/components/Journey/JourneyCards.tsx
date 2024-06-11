@@ -1,5 +1,3 @@
-import React from 'react';
-import Card from '../Card';
 import { experiences } from '../../data/experience';
 import JourneyCard from './JorneyCard';
 

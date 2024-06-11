@@ -1,4 +1,3 @@
-import React, { ReactNode } from 'react';
 import { ContactSendResult } from './Contact';
 import Button from './Button';
 import Card from './Card';
@@ -43,12 +42,12 @@ export default function ContactResultModal({
   return (
     <div className={classes.join(' ')} onClick={onDismiss}>
       <Card>
-        <div className="flex flex-col align-center max-w-sm">
+        <div className='flex flex-col align-center max-w-sm'>
           <h3 className={headerClasses.join(' ')}>
             {result?.status === 'success' ? 'Success' : 'Something went wrong'}
           </h3>
-          <p className="mb-12">{result?.message}</p>
-          <Button type="outline" color="white" onClick={onDismiss}>
+          <p className='mb-12'>{result?.message}</p>
+          <Button type='outline' color='white' onClick={onDismiss}>
             Go Back
           </Button>
         </div>

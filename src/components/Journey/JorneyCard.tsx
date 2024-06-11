@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import Card from '../Card';
 import { ExperienceType } from '../../data/experience';
 import Button from '../Button';
@@ -22,36 +21,36 @@ export default function JourneyCard({
   const { period, company, position, description } = experience;
 
   return (
-    <div className="journey-card">
+    <div className='journey-card'>
       <Card>
-        <div className="flex justify-between mb-4">
+        <div className='flex justify-between mb-4'>
           <div className={isFirst ? 'invisible' : 'visible'}>
             <Button
-              color="primary"
+              color='primary'
               onClick={onClickPrevious}
               icon={<FaChevronLeft />}
-              iconPosition="left"
+              iconPosition='left'
             >
               Previous
             </Button>
           </div>
           <div className={isLast ? 'invisible' : 'visible'}>
             <Button
-              color="primary"
+              color='primary'
               onClick={onClickNext}
               icon={<FaChevronRight />}
-              iconPosition="right"
+              iconPosition='right'
             >
               Next
             </Button>
           </div>
         </div>
-        <div className="flex justify-between items-end">
-          <h4 className="text-lg font-bold">{company}</h4>
+        <div className='flex justify-between items-end'>
+          <h4 className='text-lg font-bold'>{company}</h4>
           <p>{period}</p>
         </div>
-        <p className="pb-4">{position}</p>
-        <p className="overflow-y-auto">{description}</p>
+        <p className='pb-4'>{position}</p>
+        <p className='overflow-y-auto'>{description}</p>
       </Card>
     </div>
   );
