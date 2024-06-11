@@ -38,19 +38,23 @@ export default function FormInput({
     } else {
       setError('');
     }
-  }, [value]);
+  }, [required, type, value]);
 
   return (
-    <div className="w-full mb-6 md:mb-0">
-      <div className="flex gap-1 items-center mb-2">
-        <label className="" htmlFor={name}>
+    <div className='w-full mb-6 md:mb-0'>
+      <div className='flex gap-1 items-center mb-2'>
+        <label className='' htmlFor={name}>
           {label}
         </label>
-        {error && <p className="text-danger text-xs italic ml-1">{error}</p>}
+        {error && (
+          <p className='bg-danger px-2 py-1 text-xs italic ml-1 rounded-sm'>
+            {error}
+          </p>
+        )}
       </div>
       {textarea ? (
         <textarea
-          className="appearance-none block w-full text-gray-700  rounded py-3 px-4 leading-tight focus:outline-primary-500"
+          className='appearance-none block w-full text-gray-700  rounded py-3 px-4 leading-tight focus:outline-primary-500'
           id={name}
           name={name}
           placeholder={placeholder}
@@ -60,7 +64,7 @@ export default function FormInput({
         />
       ) : (
         <input
-          className="appearance-none block w-full text-gray-700  rounded py-3 px-4 leading-tight focus:outline-primary-500"
+          className='appearance-none block w-full text-gray-700  rounded py-3 px-4 leading-tight focus:outline-primary-500'
           id={name}
           name={name}
           type={type}
