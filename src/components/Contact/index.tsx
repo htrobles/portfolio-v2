@@ -92,7 +92,7 @@ export default function Contact() {
     <section id='contact' className='py-24 bg-secondary-500 bg-opacity-90'>
       <div className='container mx-auto max-w-screen-lg px-8'>
         <SectionHead>LET'S CONNECT</SectionHead>
-        <div className='grid grid-cols-1 md:grid-cols-2'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-y-24'>
           <div className='space-y-8'>
             <p>
               Email:{' '}

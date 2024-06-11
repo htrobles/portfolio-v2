@@ -14,7 +14,7 @@ export default function ProjectItem({
         alt={title}
         className='aspect-video object-cover rounded-md'
       />
-      <div className='flex flex-col justify-between'>
+      <div className='flex flex-col justify-between px-1 md:px-0'>
         <div>
           <h4 className='text-lg font-bold mb-4' data-swiper-parallax='-400'>
             {title}
