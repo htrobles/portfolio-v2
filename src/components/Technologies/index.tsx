@@ -7,34 +7,34 @@ type Technology = {
 };
 
 const technologies: Technology[] = [
-  { src: '/js.png', alt: 'Javascript' },
-  { src: '/ts.png', alt: 'Typescript' },
-  { src: '/php.png', alt: 'PHP' },
-  { src: '/react.png', alt: 'ReactJS' },
-  { src: '/nodejs.png', alt: 'NodeJS' },
-  { src: '/nextjs.png', alt: 'NextJS' },
-  { src: '/graphql.png', alt: 'GraphQL' },
-  { src: '/laravel.png', alt: 'Laravel' },
-  { src: '/mongodb.png', alt: 'MongoDB' },
-  { src: '/firebase.png', alt: 'Firebase' },
-  { src: '/mysql.png', alt: 'MySQL' },
-  { src: '/tailwindcss.png', alt: 'TailwindCSS' },
-  { src: '/html.png', alt: 'HTML5' },
-  { src: '/css.png', alt: 'CSS3' },
+  { src: '/tech/js.png', alt: 'Javascript' },
+  { src: '/tech/ts.png', alt: 'Typescript' },
+  { src: '/tech/php.png', alt: 'PHP' },
+  { src: '/tech/react.png', alt: 'ReactJS' },
+  { src: '/tech/nodejs.png', alt: 'NodeJS' },
+  { src: '/tech/nextjs.png', alt: 'NextJS' },
+  { src: '/tech/graphql.png', alt: 'GraphQL' },
+  { src: '/tech/laravel.png', alt: 'Laravel' },
+  { src: '/tech/mongodb.png', alt: 'MongoDB' },
+  { src: '/tech/firebase.png', alt: 'Firebase' },
+  { src: '/tech/mysql.png', alt: 'MySQL' },
+  { src: '/tech/tailwindcss.png', alt: 'TailwindCSS' },
+  { src: '/tech/html.png', alt: 'HTML5' },
+  { src: '/tech/css.png', alt: 'CSS3' },
 ];
 
 export default function Technologies() {
   return (
-    <section id="technologies" className="py-24">
-      <div className="container mx-auto max-w-screen-lg px-8">
+    <section id='technologies' className='py-24'>
+      <div className='container mx-auto max-w-screen-lg px-8'>
         <SectionHead>Technologies</SectionHead>
-        <div className="flex flex-col md:flex-row gap-8">
-          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-4 w-full gap-4 order-2 md:order-1">
+        <div className='flex flex-col md:flex-row gap-8'>
+          <div className='grid grid-cols-3 sm:grid-cols-5 md:grid-cols-4 w-full gap-4 order-2 md:order-1'>
             {technologies.map(({ src, alt }) => (
               <img key={alt} src={src} alt={alt} />
             ))}
           </div>
-          <div className="w-full order-1 md:order-2">
+          <div className='w-full order-1 md:order-2'>
             <p>
               At the heart of my craft lies a passion for innovation and
               exploration. While my expertise primarily centers around the MERN

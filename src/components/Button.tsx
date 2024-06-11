@@ -1,25 +1,5 @@
 import React, { ReactNode } from 'react';
 
-const possibleClasses = [
-  'outline',
-  `outline-primary-500`,
-  `outline-secondary`,
-  `outline-white`,
-  `text-primary-500`,
-  `text-secondary`,
-  `text-white`,
-  `hover:bg-primary-500`,
-  `hover:bg-secondary`,
-  `hover:bg-white`,
-  'py-2',
-  'px-8',
-  'rounded-sm',
-  'hover:text-black',
-  `bg-primary-500`,
-  `bg-secondary`,
-  `bg-white`,
-];
-
 type ButtonClasses = {
   [key: string]: {
     primary: string;

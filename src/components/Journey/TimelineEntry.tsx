@@ -8,6 +8,11 @@ type TimelineEntryProps = {
   isActive: boolean;
 };
 
+const dotBgClass = {
+  active: 'bg-secondary-500',
+  inactive: 'bg-white',
+};
+
 export default function TimelineEntry({
   index,
   company,
@@ -19,9 +24,9 @@ export default function TimelineEntry({
   const rowStart = index % 2 === 0 ? 1 : 2;
   const isTop = rowStart === 1;
 
-  const dotColor = isActive ? 'secondary' : 'white';
-
-  const dotClassName = `w-5 h-5 bg-${dotColor} rounded-full relative transition ease-in-out duration-1000 outline ${
+  const dotClassName = `w-5 h-5 ${
+    isActive ? dotBgClass.active : dotBgClass.inactive
+  } rounded-full relative transition ease-in-out duration-1000 outline ${
     isActive ? 'outline-4' : 'outline-0'
   }`;
 
@@ -36,9 +41,9 @@ export default function TimelineEntry({
       }}
     >
       <div className={isTop ? 'mb-5' : 'mt-5'} style={{ order: isTop ? 1 : 2 }}>
-        <p className="text-sm whitespace-nowrap	">{period}</p>
-        <h5 className="font-bold whitespace-nowrap	">{company}</h5>
-        <p className="whitespace-nowrap	">{position}</p>
+        <p className='text-sm whitespace-nowrap	'>{period}</p>
+        <h5 className='font-bold whitespace-nowrap	'>{company}</h5>
+        <p className='whitespace-nowrap	'>{position}</p>
       </div>
       <div className={dotClassName} style={{ order: isTop ? 2 : 1 }}></div>
     </div>
