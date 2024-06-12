@@ -6,7 +6,9 @@ export default function Header() {
       <div className='container mx-auto px-8'>
         <div className='mx-auto flex justify-between py-4'>
           <a href='/'>
-            <span className='text-primary-500'>{'<hr />'}</span>
+            <span className='text-primary-500 font-bold text-xl'>
+              HECTOR ROBLES
+            </span>
           </a>
           <HeaderNav />
         </div>
