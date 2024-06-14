@@ -4,9 +4,7 @@ import { Variants, motion } from 'framer-motion';
 
 export default function Hero() {
   const container: Variants = {
-    hidden: { opacity: 0 },
     show: {
-      opacity: 1,
       transition: {
         when: 'beforeChildren',
         staggerChildren: 0.5,

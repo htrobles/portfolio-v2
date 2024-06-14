@@ -2,15 +2,57 @@ import React from 'react';
 import SectionHead from '../SectionHead';
 import './WhatIDo.scss';
 import Card from '../Card';
+import { Variants, motion } from 'framer-motion';
 
 export default function WhatIDo() {
+  const imageCardContainer: Variants = {
+    show: {
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const imageCard: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 32,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
+  const copy: Variants = {
+    hidden: {
+      opacity: 0,
+      x: 32,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+    },
+  };
+
   return (
     <section id='what-i-do' className='py-24 bg-white bg-opacity-5'>
       <div className='container mx-auto max-w-screen-lg px-8'>
-        <SectionHead>What I Do</SectionHead>
+        <motion.div initial='hidden' whileInView='show' variants={copy}>
+          <SectionHead>What I Do</SectionHead>
+        </motion.div>
         <div className='flex flex-col lg:flex-row gap-8 items-center'>
-          <div className='flex gap-4 flex-col sm:flex-row lg:flex-col w-full basis-2/5'>
-            <div className='h-40 w-full relative rounded-lg overflow-hidden'>
+          <motion.div
+            className='flex gap-4 flex-col sm:flex-row lg:flex-col w-full basis-2/5'
+            initial='hidden'
+            whileInView='show'
+            variants={imageCardContainer}
+          >
+            <motion.div
+              className='h-40 w-full relative rounded-lg overflow-hidden'
+              variants={imageCard}
+            >
               <img
                 className='h-40 w-full object-cover absolute -z-10'
                 src='/design.png'
@@ -19,8 +61,11 @@ export default function WhatIDo() {
               <h4 className='service-card--title absolute bottom-0 left-0 right-0 p-5 text-center font-bold text-xl'>
                 Design.
               </h4>
-            </div>
-            <div className='h-40 w-full relative rounded-lg overflow-hidden'>
+            </motion.div>
+            <motion.div
+              className='h-40 w-full relative rounded-lg overflow-hidden'
+              variants={imageCard}
+            >
               <img
                 className='h-40 w-full object-cover absolute -z-10'
                 src='/build.png'
@@ -29,8 +74,11 @@ export default function WhatIDo() {
               <h4 className='service-card--title absolute bottom-0 left-0 right-0 p-5 text-center font-bold text-xl'>
                 Build.
               </h4>
-            </div>
-            <div className='h-40 w-full relative rounded-lg overflow-hidden'>
+            </motion.div>
+            <motion.div
+              className='h-40 w-full relative rounded-lg overflow-hidden'
+              variants={imageCard}
+            >
               <img
                 className='h-40 w-full object-cover absolute -z-10'
                 src='/solve.png'
@@ -39,9 +87,14 @@ export default function WhatIDo() {
               <h4 className='service-card--title absolute bottom-0 left-0 right-0 p-5 text-center font-bold text-xl'>
                 Solve.
               </h4>
-            </div>
-          </div>
-          <div className='w-full basis-3/5 flex justify-center'>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className='w-full basis-3/5 flex justify-center'
+            initial='hidden'
+            whileInView='show'
+            variants={copy}
+          >
             <Card>
               <p className='pb-4'>
                 As a versatile full-stack developer with a designer's eye, I
@@ -68,7 +121,7 @@ export default function WhatIDo() {
                 and problem-solving skills.
               </p>
             </Card>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
