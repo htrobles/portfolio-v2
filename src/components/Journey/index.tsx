@@ -35,7 +35,10 @@ export default function Journey() {
             initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
           >
-            <Timeline activeJourneyIndex={activeJourneyIndex} />
+            <Timeline
+              activeJourneyIndex={activeJourneyIndex}
+              onSelectJourney={setActiveJourneyIndex}
+            />
           </motion.div>
           <motion.div
             className='journey-card-container order-2 lg:order-1 max-w-96'

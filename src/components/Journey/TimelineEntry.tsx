@@ -6,6 +6,7 @@ type TimelineEntryProps = {
   company: string;
   position: string;
   isActive: boolean;
+  onSelectJourney: (index: number) => void;
 };
 
 const dotBgClass = {
@@ -19,6 +20,7 @@ export default function TimelineEntry({
   period,
   position,
   isActive,
+  onSelectJourney,
 }: TimelineEntryProps) {
   let colStart = index + 1;
   const rowStart = index % 2 === 0 ? 1 : 2;
@@ -26,13 +28,14 @@ export default function TimelineEntry({
 
   const dotClassName = `w-5 h-5 ${
     isActive ? dotBgClass.active : dotBgClass.inactive
-  } rounded-full relative transition ease-in-out duration-1000 outline ${
+  } ${
     isActive ? 'outline-4' : 'outline-0'
-  }`;
+  } rounded-full relative transition ease-in-out duration-1000 outline`;
 
   return (
     <div
-      className={`text-center flex flex-col items-center relative`}
+      className={`text-center flex flex-col items-center relative cursor-pointer`}
+      onClick={() => onSelectJourney(index)}
       style={{
         gridColumn: `${colStart}/${colStart + 1}`,
         gridRow: `${rowStart}/${rowStart + 1}`,
@@ -45,7 +48,7 @@ export default function TimelineEntry({
         <h5 className='font-bold whitespace-nowrap	'>{company}</h5>
         <p className='whitespace-nowrap	'>{position}</p>
       </div>
-      <div className={dotClassName} style={{ order: isTop ? 2 : 1 }}></div>
+      <div className={dotClassName} style={{ order: isTop ? 2 : 1 }} />
     </div>
   );
 }
