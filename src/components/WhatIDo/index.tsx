@@ -39,7 +39,12 @@ export default function WhatIDo() {
   return (
     <section id='what-i-do' className='py-24 bg-white bg-opacity-5'>
       <div className='container mx-auto max-w-screen-lg px-8'>
-        <motion.div initial='hidden' whileInView='show' variants={copy}>
+        <motion.div
+          initial='hidden'
+          whileInView='show'
+          variants={copy}
+          viewport={{ margin: '-25%', once: true }}
+        >
           <SectionHead>What I Do</SectionHead>
         </motion.div>
         <div className='flex flex-col lg:flex-row gap-8 items-center'>
