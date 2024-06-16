@@ -26,6 +26,7 @@ export default function Journey() {
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ margin: '-25%', once: true }}
         >
           <SectionHead>My Journey</SectionHead>
         </motion.div>
@@ -34,6 +35,7 @@ export default function Journey() {
             className='order-1 lg:order-2 lg:mt-10'
             initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ margin: '-25%', once: true }}
           >
             <Timeline
               activeJourneyIndex={activeJourneyIndex}
@@ -44,6 +46,7 @@ export default function Journey() {
             className='journey-card-container order-2 lg:order-1 max-w-96'
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ margin: '-25%', once: true }}
           >
             <JourneyCards
               activeJourneyIndex={activeJourneyIndex}

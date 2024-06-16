@@ -42,7 +42,7 @@ export default function About() {
         variants={container}
         initial='hidden'
         whileInView='show'
-        // viewport={{ once: true }}
+        viewport={{ margin: '-25%', once: true }}
       >
         <motion.div className='flex justify-center' variants={container}>
           <motion.div

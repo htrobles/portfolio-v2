@@ -4,6 +4,7 @@ import Button from '../Button';
 import FormInput from '../FormInput';
 import emailjs from '@emailjs/browser';
 import ContactResultModal from '../ContactResultModal';
+import { Variants, motion } from 'framer-motion';
 
 export type ContactSendResult = {
   status: 'success' | 'fail';
@@ -14,6 +15,26 @@ type Form = {
   name: string;
   email: string;
   message: string;
+};
+
+const container: Variants = {
+  show: {
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.75,
+    },
+  },
+};
+
+const items: Variants = {
+  hidden: {
+    opacity: 0,
+    left: -100,
+  },
+  show: {
+    opacity: 1,
+    left: 0,
+  },
 };
 
 export default function Contact() {
@@ -89,11 +110,28 @@ export default function Contact() {
   const isSubmitDisabled = !form.name || !form.email || !form.message;
 
   return (
-    <section id='contact' className='py-24 bg-secondary-500 bg-opacity-90'>
-      <div className='container mx-auto max-w-screen-lg px-8'>
-        <SectionHead>LET'S CONNECT</SectionHead>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-y-24'>
-          <div className='space-y-8'>
+    <section
+      id='contact'
+      className='py-24 bg-gradient-to-tr from-secondary-500 to-primary-500'
+    >
+      <motion.div
+        className='container mx-auto max-w-screen-lg px-8'
+        initial='hidden'
+        whileInView='show'
+        variants={container}
+        viewport={{ margin: '-25%', once: true }}
+      >
+        <motion.div variants={items} className='relative'>
+          <SectionHead>LET'S CONNECT</SectionHead>
+        </motion.div>
+        <motion.div
+          className='grid grid-cols-1 md:grid-cols-2 gap-y-24 relative'
+          initial='hidden'
+          whileInView='show'
+          variants={container}
+          viewport={{ margin: '-25%', once: true }}
+        >
+          <motion.div className='space-y-8' variants={items}>
             <p>
               Email:{' '}
               <a href='mailto:hjt.robles@gmail.com' className='font-bold'>
@@ -115,8 +153,8 @@ export default function Contact() {
                 Download My Resume
               </Button>
             </a>
-          </div>
-          <div className='space-y-8'>
+          </motion.div>
+          <motion.div className='space-y-8' variants={items}>
             <h3 className='text-lg'>Send me a message</h3>
             <form
               ref={formRef}
@@ -158,9 +196,9 @@ export default function Contact() {
                 Submit
               </Button>
             </form>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
       <ContactResultModal
         result={contactSendResult}
         onDismiss={() => setContactSendResult(undefined)}

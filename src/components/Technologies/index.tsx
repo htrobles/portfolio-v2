@@ -78,16 +78,18 @@ export default function Technologies() {
           variants={head}
           initial='hidden'
           whileInView='show'
+          viewport={{ margin: '-25%', once: true }}
           className='relative'
         >
           <SectionHead>Technologies</SectionHead>
         </motion.div>
         <div className='flex flex-col md:flex-row gap-8'>
           <motion.div
-            className='grid grid-cols-3 sm:grid-cols-5 md:grid-cols-4 w-full gap-4 order-2 md:order-1'
+            className='grid grid-cols-3 sm:grid-cols-5 md:grid-cols-4 w-full gap-8 order-2 md:order-1'
             initial='hidden'
             variants={container}
             whileInView='show'
+            viewport={{ margin: '-25%', once: true }}
           >
             {technologies.map(({ src, alt }) => (
               <motion.div variants={tech} className='relative'>
@@ -100,6 +102,7 @@ export default function Technologies() {
               variants={copy}
               initial='hidden'
               whileInView='show'
+              viewport={{ margin: '-25%', once: true }}
               className='relative'
             >
               At the heart of my craft lies a passion for innovation and

@@ -48,6 +48,7 @@ export default function WhatIDo() {
             initial='hidden'
             whileInView='show'
             variants={imageCardContainer}
+            viewport={{ margin: '-25%', once: true }}
           >
             <motion.div
               className='h-40 w-full relative rounded-lg overflow-hidden'
@@ -94,6 +95,7 @@ export default function WhatIDo() {
             initial='hidden'
             whileInView='show'
             variants={copy}
+            viewport={{ margin: '-25%', once: true }}
           >
             <Card>
               <p className='pb-4'>
