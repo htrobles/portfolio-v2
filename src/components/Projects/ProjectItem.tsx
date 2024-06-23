@@ -3,7 +3,7 @@ import { ProjectType } from './projects';
 import Button from '../Button';
 
 export default function ProjectItem({
-  project: { title, description, imgUrl, tech, url },
+  project: { title, description, imgUrl, tech, url, isMini },
 }: {
   project: ProjectType;
 }) {
@@ -16,9 +16,20 @@ export default function ProjectItem({
       />
       <div className='flex flex-col justify-between px-1 md:px-0'>
         <div>
-          <h4 className='text-lg font-bold mb-4' data-swiper-parallax='-400'>
-            {title}
-          </h4>
+          <div className='flex mb-4 items-center gap-2'>
+            <h4 className='text-lg font-bold' data-swiper-parallax='-400'>
+              {title}
+            </h4>
+            {isMini ? (
+              <div className='text-sm bg-white text-black px-2 rounded-sm'>
+                Mini
+              </div>
+            ) : (
+              <div className='text-sm bg-secondary-500 text-white px-2 rounded-sm'>
+                Major
+              </div>
+            )}
+          </div>
           <p className='mb-4' data-swiper-parallax='-300'>
             {description}
           </p>

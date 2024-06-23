@@ -4,6 +4,7 @@ export type ProjectType = {
   tech: string[];
   imgUrl: string;
   url: string;
+  isMini?: boolean;
 };
 
 const projects: ProjectType[] = [
@@ -44,6 +45,7 @@ const projects: ProjectType[] = [
     tech: ['HTML', 'CSS', 'Javascript'],
     imgUrl: './projects/tictactoe.jpg',
     url: 'https://robleshector.gitlab.io/tic-tac-toe/',
+    isMini: true,
   },
   {
     title: 'NumbR',
@@ -51,6 +53,7 @@ const projects: ProjectType[] = [
     tech: ['HTML', 'CSS', 'Javascript'],
     imgUrl: './projects/numbr.jpg',
     url: 'https://robleshector.gitlab.io/numbr/',
+    isMini: true,
   },
   {
     title: 'Simple Calculator',
@@ -58,6 +61,7 @@ const projects: ProjectType[] = [
     tech: ['HTML', 'CSS', 'Javascript'],
     imgUrl: './projects/calculator.jpg',
     url: 'https://robleshector.gitlab.io/calculator/',
+    isMini: true,
   },
 ];
 
