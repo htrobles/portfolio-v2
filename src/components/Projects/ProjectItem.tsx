@@ -20,15 +20,6 @@ export default function ProjectItem({
             <h4 className='text-lg font-bold' data-swiper-parallax='-400'>
               {title}
             </h4>
-            {isMini ? (
-              <div className='text-sm bg-white text-black px-2 rounded-sm'>
-                Mini
-              </div>
-            ) : (
-              <div className='text-sm bg-secondary-500 text-white px-2 rounded-sm'>
-                Major
-              </div>
-            )}
           </div>
           <p className='mb-4' data-swiper-parallax='-300'>
             {description}
